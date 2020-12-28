@@ -54,10 +54,23 @@ else:
 
 print(oddelovac)
 print("Budeme analyzovat 3 texty.")
-cislo = int(input("Zadejte číslo od 1 do 3 pro výběr textu: "))
-print(oddelovac)
+mod = True
+while mod == True:
+    cislo = input("Zadejte číslo od 1 do 3 pro výběr textu: ")
+    if not cislo.isnumeric():
+        print("Opravte svou volbu, zadejte prosím pouze čísla od 1 do 3.")
+        print(oddelovac)
+    elif int(cislo) == 0:
+        print("Opravte svou volbu, zadejte prosím pouze čísla od 1 do 3.")
+        print(oddelovac)
+    elif int(cislo) > 3:
+        print("Opravte svou volbu, zadejte prosím pouze čísla od 1 do 3.")
+        print(oddelovac)
+    else:
+        mod = False
+        print(oddelovac)
 
-text = TEXTS[cislo - 1].strip(" ,.")
+text = TEXTS[int(cislo) - 1]
 slova = text.split()
 pomocna = text.split()
 
@@ -84,6 +97,7 @@ print("Počet čísel ve vybraném textu je:", str(pocet_cisel) + ".")
 
 print(oddelovac)
 print("Nyní následuje jednoduchý sloupcový graf zobrazující četnost délek slov v textu:")
+print()
 
 jedno = 0
 dvou = 0
@@ -129,20 +143,72 @@ while pomocna:
         trinacti = trinacti + 1
 
 
-print("1", jedno * "*", jedno)
-print("2", dvou * "*", dvou)
-print("3", tri * "*", tri)
-print("4", ctyr * "*", ctyr)
-print("5", peti * "*", peti)
-print("6", sesti * "*", sesti)
-print("7", sedmi * "*", sedmi)
-print("8", osmi * "*", osmi)
-print("9", deviti * "*", deviti)
-print("10", desiti * "*", desiti)
-print("11", jedenacti * "*", jedenacti)
-print("12", dvanacti * "*", dvanacti)
-print("13", trinacti * "*", trinacti)
+if jedno == 0:
+    print(end="")
+else:
+    print("\t", "1", jedno * "*", jedno)
 
+if dvou == 0:
+    print(end="")
+else:
+    print("\t", "2", dvou * "*", dvou)
+
+if tri == 0:
+    print(end="")
+else:
+    print("\t", "3", tri * "*", tri)
+
+if ctyr == 0:
+    print(end="")
+else:
+    print("\t", "4", ctyr * "*", ctyr)
+
+if peti == 0:
+    print(end="")
+else:
+    print("\t", "5", peti * "*", peti)
+
+if sesti == 0:
+    print(end="")
+else:
+    print("\t", "6", sesti * "*", sesti)
+
+if sedmi == 0:
+    print(end="")
+else:
+    print("\t", "7", sedmi * "*", sedmi)
+
+if osmi == 0:
+    print(end="")
+else:
+    print("\t", "8", osmi * "*", osmi)
+
+if deviti == 0:
+    print(end="")
+else:
+    print("\t", "9", deviti * "*", deviti)
+
+if desiti == 0:
+    print(end="")
+else:
+    print("\t", "10", desiti * "*", desiti)
+
+if jedenacti == 0:
+    print(end=" ")
+else:
+    print("\t", "11", jedenacti * "*", jedenacti)
+
+if dvanacti == 0:
+    print(end="")
+else:
+    print("\t", "12", dvanacti * "*", dvanacti)
+
+if trinacti == 0:
+    print(end="")
+else:
+    print("\t","13", trinacti * "*", trinacti)
+
+print()
 print(oddelovac)
 
 soucet = 0
